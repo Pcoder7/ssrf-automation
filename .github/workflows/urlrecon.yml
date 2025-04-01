@@ -61,14 +61,24 @@ jobs:
       - name: Create results directory
         run: mkdir -p results
 
+      # Debug: Display the contents of domains.txt with special characters visible
+      - name: Debug: Display domains.txt content
+        run: cat -A domains.txt
+
       - name: Process Domain Recon
         run: |
           if [ ! -f domains.txt ]; then
             echo "domains.txt file not found!"
             exit 1
           fi
-          while IFS= read -r domain; do
-            echo "Processing $domain"
+          # Process each line even if the last line doesn't end with a newline
+          while IFS= read -r domain || [ -n "$domain" ]; do
+            echo "Processing domain: '$domain'"
+            # Skip blank lines
+            if [ -z "$domain" ]; then
+              echo "Empty line detected; skipping..."
+              continue
+            fi
             mkdir -p results/"$domain"
             echo "[*] Running subfinder for $domain"
             subfinder -d "$domain" -silent -o results/"$domain"/subdomains.txt
@@ -84,7 +94,8 @@ jobs:
 
       - name: Show Output Files
         run: |
-          for domain in $(cat domains.txt); do
+          while IFS= read -r domain || [ -n "$domain" ]; do
+            if [ -z "$domain" ]; then continue; fi
             echo "=== Results for $domain ==="
             echo "--- subdomains.txt ---"
             cat results/"$domain"/subdomains.txt || echo "Not found"
@@ -96,7 +107,7 @@ jobs:
             cat results/"$domain"/filtered.txt || echo "Not found"
             echo "--- ssrf.txt ---"
             cat results/"$domain"/ssrf.txt || echo "Not found"
-          done
+          done < domains.txt
 
       - name: Upload Results as Artifact
         uses: actions/upload-artifact@v4
