@@ -93,7 +93,7 @@ jobs:
             echo "[*] Extracting SSRF candidates with gf"
             gf -dump ssrf
             gf -dump redirect
-            gf ssrf "results/$domain/filtered.txt" > "results/$domain/ssrf.txt"
+            cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
           done
 
       - name: Show Output Files
