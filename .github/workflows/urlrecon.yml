@@ -48,7 +48,7 @@ jobs:
         run: |
           git clone https://github.com/1ndianl33t/Gf-Patterns.git
           mkdir -p ~/.gf
-          cp Gf-Patterns/*.json ~/.gf/
+          cp Gf-Patterns/*.json ~/.gf
 
       # Install pipx and then uro (Python tool)
       - name: Install pipx and uro
@@ -91,6 +91,8 @@ jobs:
             echo "[*] Filtering URLs with uro"
             cat "results/$domain/wayback.txt" | uro --filters hasparams > "results/$domain/filtered.txt"
             echo "[*] Extracting SSRF candidates with gf"
+            gf -dump ssrf
+            gf -dump redirect
             gf ssrf "results/$domain/filtered.txt" > "results/$domain/ssrf.txt"
           done
 
