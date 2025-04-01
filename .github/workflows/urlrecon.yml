@@ -71,26 +71,28 @@ jobs:
             echo "domains.txt file not found!"
             exit 1
           fi
-          # Process each line even if the last line doesn't end with a newline
-          while IFS= read -r domain || [ -n "$domain" ]; do
-            echo "Processing domain: '$domain'"
-            # Skip blank lines
+          # Convert domains.txt to Unix format (remove carriage returns)
+          sed -i 's/\r$//' domains.txt
+          # Load all domains into an array, ignoring empty lines
+          readarray -t domains < domains.txt
+          for domain in "${domains[@]}"; do
             if [ -z "$domain" ]; then
               echo "Empty line detected; skipping..."
-              continue
+            continue
             fi
-            mkdir -p results/"$domain"
+            echo "Processing domain: '$domain'"
+            mkdir -p "results/$domain"
             echo "[*] Running subfinder for $domain"
-            subfinder -d "$domain" -silent -o results/"$domain"/subdomains.txt
+            subfinder -d "$domain" -silent -o "results/$domain/subdomains.txt"
             echo "[*] Filtering live hosts with httpx"
-            cat results/"$domain"/subdomains.txt | httpx -silent -o results/"$domain"/live.txt
+            cat "results/$domain/subdomains.txt" | httpx -silent -o "results/$domain/live.txt"
             echo "[*] Fetching archived URLs with waybackurls"
-            cat results/"$domain"/live.txt | waybackurls > results/"$domain"/wayback.txt
+            cat "results/$domain/live.txt" | waybackurls > "results/$domain/wayback.txt"
             echo "[*] Filtering URLs with uro"
-            cat results/"$domain"/wayback.txt | uro --filters hasparams > results/"$domain"/filtered.txt
+            cat "results/$domain/wayback.txt" | uro --filters hasparams > "results/$domain/filtered.txt"
             echo "[*] Extracting SSRF candidates with gf"
-            gf ssrf results/"$domain"/filtered.txt > results/"$domain"/ssrf.txt
-          done < domains.txt
+            gf ssrf "results/$domain/filtered.txt" > "results/$domain/ssrf.txt"
+          done
 
       - name: Show Output Files
         run: |
