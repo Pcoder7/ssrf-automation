@@ -62,7 +62,7 @@ jobs:
         run: mkdir -p results
 
       # Debug: Display the contents of domains.txt with special characters visible
-      - name: Debug: Display domains.txt content
+      - name: Display domains.txt content
         run: cat -A domains.txt
 
       - name: Process Domain Recon
