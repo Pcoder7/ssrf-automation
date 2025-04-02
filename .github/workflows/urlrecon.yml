@@ -5,6 +5,9 @@ on:
     - cron: "0 10 * * *"  # Runs every day at 10:00 AM UTC
   workflow_dispatch:
 
+permissions:
+    contents: write
+
 jobs:
   recon:
     runs-on: ubuntu-latest
@@ -120,9 +123,6 @@ jobs:
           path: results/
 
       - name: Commit and push
-        permissions:
-            contents: write
-     
         run: |
           date > generated.txt
           git config user.name github-actions
