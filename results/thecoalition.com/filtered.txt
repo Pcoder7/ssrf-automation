@@ -1,0 +1,6 @@
+https://blog.thecoalition.com/assets/js/jquery.fitvids.js?v=020d421558
+http://thecoalition.com:80/footer2.php?dom=thecoalition.com
+https://platform.thecoalition.com/app/quote?filter=ARCHIVED
+https://platform.thecoalition.com/auth/login?redirect=%2Fapp%2Fresources
+https://platform.thecoalition.com/broker/quote?filter=ARCHIVED
+https://platform.thecoalition.com/login?redirect=/customer

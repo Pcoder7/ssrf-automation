@@ -1,0 +1,2 @@
+https://platform.thecoalition.com/auth/login?redirect=%2Fapp%2Fresources
+https://platform.thecoalition.com/login?redirect=/customer
