@@ -52,6 +52,8 @@ jobs:
           git clone https://github.com/1ndianl33t/Gf-Patterns.git
           mkdir -p ~/.gf
           cp Gf-Patterns/*.json ~/.gf
+            # Remove the cloned folder so it doesn't interfere with git commits
+          rm -rf Gf-Patterns
 
       # Install pipx and then uro (Python tool)
       - name: Install pipx and uro
