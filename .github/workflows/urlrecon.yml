@@ -118,3 +118,15 @@ jobs:
         with:
           name: recon-results
           path: results/
+
+      - name: Commit and Push Results
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # Update remote URL with PAT for authentication
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/Pcoder7/ssrf-automation.git
+          git add results
+          git commit -m "Add recon results from $(date)" || echo "No changes to commit"
+          git push origin HEAD:main || echo "Push failed"
