@@ -13,3 +13,12 @@ help.thecoalition.com
 blog.thecoalition.com
 bb.thecoalition.com
 ap.thecoalition.com
+admin-tools.thecoalition.com
+www.thecoalition.com
+api.thecoalition.com
+ap.thecoalition.com
+bb.thecoalition.com
+files.thecoalition.com
+platform.thecoalition.com
+help.thecoalition.com
+blog.thecoalition.com
