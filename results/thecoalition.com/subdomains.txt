@@ -22,3 +22,12 @@ files.thecoalition.com
 platform.thecoalition.com
 help.thecoalition.com
 blog.thecoalition.com
+files.thecoalition.com
+admin-tools.thecoalition.com
+api.thecoalition.com
+platform.thecoalition.com
+bb.thecoalition.com
+ap.thecoalition.com
+help.thecoalition.com
+www.thecoalition.com
+blog.thecoalition.com

@@ -1,9 +1,9 @@
-https://www.thecoalition.com
-https://ap.thecoalition.com
 https://help.thecoalition.com
+https://ap.thecoalition.com
+https://www.thecoalition.com
 https://blog.thecoalition.com
-https://api.thecoalition.com
-https://files.thecoalition.com
 https://platform.thecoalition.com
 https://bb.thecoalition.com
+https://api.thecoalition.com
+https://files.thecoalition.com
 http://admin-tools.thecoalition.com
