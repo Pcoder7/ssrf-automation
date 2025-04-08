@@ -58,3 +58,9 @@ platform.thecoalition.com
 ap.thecoalition.com
 help.thecoalition.com
 blog.thecoalition.com
+platform.thecoalition.com
+www.thecoalition.com
+help.thecoalition.com
+blog.thecoalition.com
+api.thecoalition.com
+files.thecoalition.com
