@@ -157,3 +157,9 @@ api.thecoalition.com
 files.thecoalition.com
 platform.thecoalition.com
 www.thecoalition.com
+files.thecoalition.com
+help.thecoalition.com
+platform.thecoalition.com
+www.thecoalition.com
+api.thecoalition.com
+blog.thecoalition.com
