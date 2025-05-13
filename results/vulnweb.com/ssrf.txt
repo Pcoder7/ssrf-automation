@@ -7,7 +7,7 @@ http://testasp.vulnweb.com/t/xss.html?%00.jpg=
 http://testphp.vulnweb.com/artists.php?file=..
 http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg
 http://testphp.vulnweb.com/?file=..%2F..%2F..%2F..%2Fetc%2Fpasswd
-http://testphp.vulnweb.com/redir.php?r=http://sportnabiblioteka.bg/index.php?option&view=itemlist&task=user&id=104404
+http://testphp.vulnweb.com/redir.php?r=https://www.grupopcon.com.br/?option&view=itemlist&task=user&id=594916
 http://testphp.vulnweb.com/search.php?test=query
 http://testphp.vulnweb.com/search.php?test=query&cat=123&ppl=1fhhahwul
 http://testphp.vulnweb.com/search.php?test=&gt=
