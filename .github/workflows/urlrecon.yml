@@ -78,7 +78,7 @@ jobs:
 
       - name: Process Domain Recon
         run: |
-          Gau_blacklist = png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image
+          Gau_blacklist=png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image
           if [ ! -f domains.txt ]; then
             echo "domains.txt file not found!"
             exit 1
@@ -101,7 +101,7 @@ jobs:
             echo "[*] Fetching archived URLs with waybackurls"
             cat "results/$domain/live.txt" | waybackurls > "results/$domain/wayback.txt"
             echo "[*] Fetching archived URLs with Gau"
-            cat "results/$domain/live.txt" | gau --blacklist "$Gau_blacklist" --o "results/$domain/gau.txt"
+            cat "results/$domain/live.txt" | gau --blacklist $Gau_blacklist --o "results/$domain/gau.txt"
             echo "[*] Filtering URLs with uro"
             cat "results/$domain/wayback.txt" "results/$domain/gau.txt" | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
             echo "[*] Extracting SSRF candidates with gf"
