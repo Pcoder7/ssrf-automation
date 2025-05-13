@@ -40,6 +40,12 @@ jobs:
           go install -v github.com/tomnomnom/waybackurls@latest
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
+      # Install Gau
+      - name: Install waybackurls
+        run: |
+          go install github.com/lc/gau/v2/cmd/gau@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH          
+
       # Install gf
       - name: Install gf
         run: |
@@ -72,6 +78,7 @@ jobs:
 
       - name: Process Domain Recon
         run: |
+          Gau_blacklist = png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image
           if [ ! -f domains.txt ]; then
             echo "domains.txt file not found!"
             exit 1
@@ -93,12 +100,18 @@ jobs:
             cat "results/$domain/subdomains.txt" | httpx -silent -o "results/$domain/live.txt"
             echo "[*] Fetching archived URLs with waybackurls"
             cat "results/$domain/live.txt" | waybackurls > "results/$domain/wayback.txt"
+            echo "[*] Fetching archived URLs with Gau"
+            cat "results/$domain/live.txt" | gau --blacklist "$Gau_blacklist" --o "results/$domain/gau.txt"
             echo "[*] Filtering URLs with uro"
-            cat "results/$domain/wayback.txt" | uro --filters hasparams > "results/$domain/filtered.txt"
+            cat "results/$domain/wayback.txt" "results/$domain/gau.txt" | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
             echo "[*] Extracting SSRF candidates with gf"
             gf -dump ssrf
             gf -dump redirect
+            gf -dump lfi
+            gf -dump sqli
             cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
+            cat "results/$domain/filtered.txt" | gf lfi > "results/$domain/lfi.txt"
+            cat "results/$domain/filtered.txt" | gf sqli > "results/$domain/sqli.txt"
           done
 
       - name: Show Output Files
