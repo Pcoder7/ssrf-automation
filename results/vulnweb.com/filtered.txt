@@ -62,7 +62,6 @@ http://testhtml5.vulnweb.com/ajax/popular?offset=0
 http://testhtml5.vulnweb.com/comment?id=011dc54012e965efaf58a4fc21785602
 http://testhtml5.vulnweb.com/like?id=011dc54012e965efaf58a4fc21785602
 http://testhtml5.vulnweb.com/report?id=011dc54012e965efaf58a4fc21785602
-http://testhtml5.vulnweb.com:80/ajax/latest?offset=15
 http://testhtml5.vulnweb.com:80/static/css/?%3Cmy_tag_88fc8f0ec9141866cb14f3125be901b4/%3E=
 http://testpho.vulnweb.com/showimage.php?file=.%2Fpictures%2F1.jpg&size=160
 http://testpho.vulnweb.com:80/artists.php?artist=1
