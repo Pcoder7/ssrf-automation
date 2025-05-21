@@ -26,6 +26,7 @@ http://testphp.vulnweb.com/redir.php?r=http://sportnabiblioteka.bg/index.php?opt
 http://testphp.vulnweb.com/search.php?cat=1
 http://testphp.vulnweb.com/search.php?cat=FUZZ&ppl=FUZZ&test=FUZZ%27
 http://testphp.vulnweb.com/showimage.php?file=
+http://testphp.vulnweb.com/wp-admin/admin-ajax.php?action=test_unknown_action
 http://testphp.vulnweb.com:80/categories.php/listproducts.php?cat=1
 http://testphp.vulnweb.com:80/listproducts.php?cat=-1+union+select+1,2,3,4,5,6,7,8,9,10,+group_concat(column_name)+from+information_schema.columns+where+table_name
 http://vulnweb.com/listproducts.php?cat=

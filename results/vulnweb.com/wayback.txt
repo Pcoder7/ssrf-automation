@@ -975,6 +975,7 @@ http://testasp.vulnweb.com/t/fF11548
 http://testasp.vulnweb.com/t/fF115481giabfpwj
 http://testasp.vulnweb.com/t/fF115481giabfpwj$
 http://testasp.vulnweb.com/t/fF1155
+http://testasp.vulnweb.com/t/fF11550
 http://testasp.vulnweb.com/t/fF115501
 http://testasp.vulnweb.com/t/fF115501giabfpwj$
 http://testasp.vulnweb.com/t/fit.tx
@@ -1144,6 +1145,7 @@ http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnwe
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgak
+http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF1
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF11
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF1154
@@ -1165,11 +1167,14 @@ http://testasp.vulnweb.com/t/xF
 http://testasp.vulnweb.com/t/xF1
 http://testasp.vulnweb.com/t/xF11
 http://testasp.vulnweb.com/t/xF1154
+http://testasp.vulnweb.com/t/xF11547
 http://testasp.vulnweb.com/t/xF115471
 http://testasp.vulnweb.com/t/xM1
+http://testasp.vulnweb.com/t/xM11
 http://testasp.vulnweb.com/t/xM1154
 http://testasp.vulnweb.com/t/xM11545
 http://testasp.vulnweb.com/t/xM115451
+http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lon
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF1
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF11
@@ -13141,6 +13146,7 @@ http://testphp.vulnweb.com/wp-
 http://testphp.vulnweb.com:80/wp-admin
 http://testphp.vulnweb.com/wp-admin/admin-
 http://testphp.vulnweb.com/wp-admin/admin-ajax.php
+http://testphp.vulnweb.com/wp-admin/admin-ajax.php?action=test_unknown_action
 http://testphp.vulnweb.com/wp-json/wp/v2/users
 http://testphp.vulnweb.com:80/wvs/
 http://testphp.vulnweb.com:80/wvstests/
@@ -24918,6 +24924,7 @@ http://testphp.vulnweb.com/wp-
 http://testphp.vulnweb.com:80/wp-admin
 http://testphp.vulnweb.com/wp-admin/admin-
 http://testphp.vulnweb.com/wp-admin/admin-ajax.php
+http://testphp.vulnweb.com/wp-admin/admin-ajax.php?action=test_unknown_action
 http://testphp.vulnweb.com/wp-json/wp/v2/users
 http://testphp.vulnweb.com:80/wvs/
 http://testphp.vulnweb.com:80/wvstests/
@@ -25153,6 +25160,7 @@ http://testasp.vulnweb.com/t/fF11548
 http://testasp.vulnweb.com/t/fF115481giabfpwj
 http://testasp.vulnweb.com/t/fF115481giabfpwj$
 http://testasp.vulnweb.com/t/fF1155
+http://testasp.vulnweb.com/t/fF11550
 http://testasp.vulnweb.com/t/fF115501
 http://testasp.vulnweb.com/t/fF115501giabfpwj$
 http://testasp.vulnweb.com/t/fit.tx
@@ -25322,6 +25330,7 @@ http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnwe
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgak
+http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF1
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF11
 http://testasp.vulnweb.com/t/fM11540http://testasp.rieilgakM115411testasp.vulnweb.comM11542http://testasp.rieilgakF1154
@@ -25343,11 +25352,14 @@ http://testasp.vulnweb.com/t/xF
 http://testasp.vulnweb.com/t/xF1
 http://testasp.vulnweb.com/t/xF11
 http://testasp.vulnweb.com/t/xF1154
+http://testasp.vulnweb.com/t/xF11547
 http://testasp.vulnweb.com/t/xF115471
 http://testasp.vulnweb.com/t/xM1
+http://testasp.vulnweb.com/t/xM11
 http://testasp.vulnweb.com/t/xM1154
 http://testasp.vulnweb.com/t/xM11545
 http://testasp.vulnweb.com/t/xM115451
+http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lon
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF1
 http://testasp.vulnweb.com/t/xM1154511some_inexistent_file_with_lonF11

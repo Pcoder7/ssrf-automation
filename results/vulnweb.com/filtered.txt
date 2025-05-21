@@ -141,6 +141,7 @@ http://testphp.vulnweb.com/secured/phpinfo.php?=PHPE9568F34-D428-11d2-A769-00AA0
 http://testphp.vulnweb.com/showimage.php?%EF%AC%81le=
 http://testphp.vulnweb.com/showimage.php?%EF%AC%81le=./pictures/1.jpg&size=160
 http://testphp.vulnweb.com/showimage.php?file=
+http://testphp.vulnweb.com/wp-admin/admin-ajax.php?action=test_unknown_action
 http://testphp.vulnweb.com:80/AJAX/infocateg.php?id=1
 http://testphp.vulnweb.com:80/admin/?C=D;O
 http://testphp.vulnweb.com:80/artists.php?artist%20=1
