@@ -32,6 +32,7 @@ http://testasp.vulnweb.com/search.asp?tfSearch=alert(2)%3C/script%3E
 http://testasp.vulnweb.com/showforum.asp?id=0
 http://testasp.vulnweb.com/showthread.asp?id=0
 http://testasp.vulnweb.com/t/fit.txt%3F.com/search?hl=en&q=testing
+http://testasp.vulnweb.com/t/fit.txt?%00.jpg=
 http://testasp.vulnweb.com/t/fit.txt?%00.jpg?id_menu=362
 http://testasp.vulnweb.com/t/fit.txt?%00.php?bo_table=co_notice
 http://testasp.vulnweb.com/t/fit.txt?.com/us/en/job/JOBID182/Software-Engineer-II-Intune-Engineering/?utm_source=facebook&utm_campaign=jobs-share&utm_medium=social-share
