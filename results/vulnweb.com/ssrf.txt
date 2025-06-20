@@ -6,7 +6,6 @@ http://testasp.vulnweb.com/t/fit.txt?.jpg=
 http://testasp.vulnweb.com/t/xss.html?%00.jpg=
 http://testasp.vulnweb.com:80/Login.asp?RetURL=/Default.asp
 http://testasp.vulnweb.com:80/Register.asp?RetURL=/Default.asp
-http://testpho.vulnweb.com/showimage.php?file=.%2Fpictures%2F1.jpg&size=160
 http://testphp.vulnweb.com/?file=..%2F..%2F..%2F..%2Fetc%2Fpasswd
 http://testphp.vulnweb.com/artists.php?file=..
 http://testphp.vulnweb.com/redir.php?r=http://sportnabiblioteka.bg/index.php?option&view=itemlist&task=user&id=104404
