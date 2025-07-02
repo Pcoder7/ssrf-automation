@@ -9,9 +9,11 @@ http://testasp.vulnweb.com:80/Register.asp?RetURL=/Default.asp
 http://testpho.vulnweb.com/showimage.php?file=.%2Fpictures%2F1.jpg&size=160
 http://testphp.vulnweb.com/?file=..%2F..%2F..%2F..%2Fetc%2Fpasswd
 http://testphp.vulnweb.com/artists.php?file=..
+http://testphp.vulnweb.com/categories.phphttp://testphp.vulnweb.com/secured/style.csshttp://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg
 http://testphp.vulnweb.com/redir.php?r=http://sportnabiblioteka.bg/index.php?option&view=itemlist&task=user&id=104404
 http://testphp.vulnweb.com/search.php?cat=FUZZ&ppl=FUZZ&test=FUZZ%27
 http://testphp.vulnweb.com/search.php?test=&gt=
+http://testphp.vulnweb.com/secured/style.csshttp://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg
 http://testphp.vulnweb.com/showimage.php?file=
 http://testphp.vulnweb.com:80/search.php?test=query
 http://vulnweb.com/search.php?test=queryWhich
