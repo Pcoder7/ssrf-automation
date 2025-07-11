@@ -1,5 +1,3 @@
-http://testhtml5.vulnweb.com/
-http://testhtml5.vulnweb.com/robots.txt
 http://testhtml5.vulnweb.com:80/
 http://testhtml5.vulnweb.com:80/%20
 http://testhtml5.vulnweb.com/%E2%80%A2
@@ -178,6 +176,7 @@ http://testhtml5.vulnweb.com/report?id=f239f69c075f10cc48df4cc9e7a3a457
 http://testhtml5.vulnweb.com/report?id=fa00b1ed6ef78275a96eb27a075e862b
 http://testhtml5.vulnweb.com:80/robot.txt
 http://testhtml5.vulnweb.com:80/robots
+http://testhtml5.vulnweb.com/robots.txt
 http://testhtml5.vulnweb.com/row
 http://testhtml5.vulnweb.com:80/samples/
 http://testhtml5.vulnweb.com:80/Signup.aspx
@@ -204,6 +203,7 @@ http://testhtml5.vulnweb.com/static/scr/1a0c8d2e0e2f22221f5b236a93823df6.png
 http://testhtml5.vulnweb.com/static/scr/20ba87fba91c9b513ae3354265ef97ef.png
 http://testhtml5.vulnweb.com/static/scr/default.png
 http://testhtml5.vulnweb.com:80/tapan.php
+http://testhtml5.vulnweb.com/
 http://www.vulnweb.com/
 http://vulnweb.com/
 http://www.vulnweb.com/robots.txt
@@ -13757,19 +13757,6 @@ http://zzz.vulnweb.com/robots.txt
 http://zzz.vulnweb.com/style.css
 http://zzz.vulnweb.com:80/userinfo.php
 http://testphp.vulnweb.com/
-http://testphp.vulnweb.com/AJAX/index.php
-http://testphp.vulnweb.com/artists.php?artist=1'
-http://testphp.vulnweb.com/disclaimer.php
-http://testphp.vulnweb.com/login.php
-http://testphp.vulnweb.com/privacy.php
-http://testphp.vulnweb.com/robots.txt
-http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/2.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/3.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/4.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/5.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpg
-http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg
 http://testphp.vulnweb.com/%0A
 http://testphp.vulnweb.com/%0A%0A%D9%87%D8%B0%D8%A7
 http://testphp.vulnweb.com:80/%20/listproducts.php?
@@ -25179,6 +25166,7 @@ http://testphp.vulnweb.com/redir.php?r=z09tjvcn.blogspot.com/
 http://testphp.vulnweb.com/redir.php?r\u003dhttps://festivetreat.com
 http://testphp.vulnweb.com:80/reverse-ip
 http://testphp.vulnweb.com:80/robot.txt
+http://testphp.vulnweb.com/robots.txt
 http://testphp.vulnweb.com:80/rotots.txt
 http://testphp.vulnweb.com/runsuperstarid.blogspot.com/
 http://testphp.vulnweb.com:80/search.php?
@@ -25321,14 +25309,20 @@ http://testphp.vulnweb.com/showimage.php?file='%20OR%20
 http://testphp.vulnweb.com/showimage.php?file='%20OR%20sqlspider
 http://testphp.vulnweb.com/showimage.php?file='%20OR%20sqlspider%7C
 http://testphp.vulnweb.com/showimage.php?file=..%2F..%2Fetc%2Fpasswd
+http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/1.jpg&size=160
+http://testphp.vulnweb.com/showimage.php?file=./pictures/2.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/2.jpg&size=160
+http://testphp.vulnweb.com/showimage.php?file=./pictures/3.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/3.jpg&size=160
+http://testphp.vulnweb.com/showimage.php?file=./pictures/4.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/4.jpg&size=160
+http://testphp.vulnweb.com/showimage.php?file=./pictures/5.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/5.jpg&size=160
 http://testphp.vulnweb.com/showimage.php?file=.%2Fpictures%2F6.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpg&size=160
 http://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpghttp://testphp.vulnweb.com/signup.php
+http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg&size=160
 http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpghttp://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpg
 http://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpghttp://testphp.vulnweb.com/showimage.php?file=./pictures/6.jpghttp://testphp.vulnweb.com/signup.php
@@ -26013,7 +26007,6 @@ http://testasp.vulnweb.com/Templatize.asp?item=html/about.html
 http://testasp.vulnweb.com:/www.amazon.com/dp/B00FJRS73G/ref=as_li_ss_tl
 http://testasp.vulnweb.com:/www.nfl.com/news/story/0ap2000000248032/article/jermichael-finley-out-for-packers-due-to-concussion
 http://testasp.vulnweb.com:/www.nfl.com/news/story/0ap2000000266504/article/bill-belichick-disagrees-with-penalty-call-in-pats-loss
-
 http://testaspnet.vulnweb.com
 http://testaspnet.vulnweb.com/%E2%80%93
 http://testaspnet.vulnweb.com/%E2%80%99
@@ -26062,7 +26055,6 @@ http://testaspnet.vulnweb.com/test/vuln.cgi?par1=
 http://testaspnet.vulnweb.com/test/vuln.cgi?par1=val1&par1=val2
 http://testaspnet.vulnweb.com/test/vuln.cgi?par1=val1&par2=val2
 http://testaspnet.vulnweb.com/was.swf
-
 http://rest.vulnweb.com:80/
 http://rest.vulnweb.com:80/docs/
 http://rest.vulnweb.com/docs/api_data.js?v=1596328981612
