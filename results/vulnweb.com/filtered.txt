@@ -101,6 +101,7 @@ http://testphp.vulnweb.com/artists.php?artist=&oqXf=8943%20AND%201%3D1%20UNION%2
 http://testphp.vulnweb.com/artists.php?artist=&quot=
 http://testphp.vulnweb.com/artists.php?artist=1+order+by+4%27&gt=
 http://testphp.vulnweb.com/artists.php?file=..
+http://testphp.vulnweb.com/bxss/vuln.php?id=
 http://testphp.vulnweb.com/categories.php/listproducts.php?cat=
 http://testphp.vulnweb.com/categories.phphttp://testphp.vulnweb.com/secured/style.csshttp://testphp.vulnweb.com/showimage.php?file=./pictures/7.jpg
 http://testphp.vulnweb.com/comment.php?aid=%27%20UNION%20SELECT%20%2A%20FROM%20information_schema%20--
