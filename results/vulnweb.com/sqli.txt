@@ -7,6 +7,8 @@ http://testasp.vulnweb.com/search.asp?tfSearch=alert(2)%3C/script%3E
 http://testasp.vulnweb.com/showforum.asp?id=0
 http://testasp.vulnweb.com/showthread.asp?id=0
 http://testasp.vulnweb.com/t/fit.txt?%00.php?bo_table=co_notice
+http://testasp.vulnweb.com/t/fit.txt?ei=8qznU7j4M4OtgAfu6YEg&rt=REALTIME_COVERAGE&vm=STANDARD&bvm=section&did=281622354223359722&ssid=tc&shr=f
+http://testasp.vulnweb.com/t/fit.txt?ei=u39DWKiSO4eHhQG1h53oBQ&rt=HOMEPAGE&vm=STANDARD&bvm=section&did=-45480731982282865&sid=toptop&ssid=h&st=1&at=dt0&shr=f
 http://testasp.vulnweb.com/t/fit.txt?.kr/bl_introduce?viewID=4558
 http://testasp.vulnweb.com/t/fit.txt?.php?bo_table=JAV5A&wr_id=76168
 http://testasp.vulnweb.com/t/fit.txt?.tw?a_id=14687

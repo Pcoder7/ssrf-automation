@@ -35,7 +35,9 @@ http://testasp.vulnweb.com/t/fit.txt%3F.com/search?hl=en&q=testing
 http://testasp.vulnweb.com/t/fit.txt?%00.jpg=
 http://testasp.vulnweb.com/t/fit.txt?%00.jpg?id_menu=362
 http://testasp.vulnweb.com/t/fit.txt?%00.php?bo_table=co_notice
+http://testasp.vulnweb.com/t/fit.txt?ei=8qznU7j4M4OtgAfu6YEg&rt=REALTIME_COVERAGE&vm=STANDARD&bvm=section&did=281622354223359722&ssid=tc&shr=f
 http://testasp.vulnweb.com/t/fit.txt?.com/us/en/job/JOBID182/Software-Engineer-II-Intune-Engineering/?utm_source=facebook&utm_campaign=jobs-share&utm_medium=social-share
+http://testasp.vulnweb.com/t/fit.txt?ei=u39DWKiSO4eHhQG1h53oBQ&rt=HOMEPAGE&vm=STANDARD&bvm=section&did=-45480731982282865&sid=toptop&ssid=h&st=1&at=dt0&shr=f
 http://testasp.vulnweb.com/t/fit.txt?.html?shop_no=14821
 http://testasp.vulnweb.com/t/fit.txt?.jpg=
 http://testasp.vulnweb.com/t/fit.txt?.kr/bl_introduce?viewID=4558
