@@ -1,4 +1,4 @@
-name: Parallel Recon with Sequential Commit
+name: Url Recon with Gf 
 
 on:
   schedule:
@@ -70,12 +70,32 @@ jobs:
         run: |
           go install github.com/lc/gau/v2/cmd/gau@latest
           go install -v github.com/tomnomnom/gf@latest
+          go install github.com/tomnomnom/waybackurls@latest
+          go install -v github.com/tomnomnom/anew@latest
           python3 -m pip install --user pipx
           python3 -m pipx ensurepath
           pipx install uro
+          pip install waymore
+          pip install urless          
           echo "$HOME/go/bin" >> $GITHUB_PATH
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+      - name: Install uforall
+        run: |
+           wget https://github.com/rix4uni/uforall/releases/download/v0.0.2/uforall-linux-amd64-0.0.2.tgz
+           tar -xvzf uforall-linux-amd64-0.0.2.tgz
+           rm -rf uforall-linux-amd64-0.0.2.tgz
+           mv uforall ~/go/bin/uforall
+           echo $GOPATH
+      
+      - name: Install uforall
+        run: |
+           wget https://github.com/rix4uni/timelimitx/releases/download/v0.0.1/timelimitx-linux-amd64-0.0.1.tgz
+           tar -xvzf timelimitx-linux-amd64-0.0.1.tgz
+           rm -rf timelimitx-linux-amd64-0.0.1.tgz
+           mv timelimitx ~/go/bin/timelimitx
+           
+          
       - name: Setup gf-patterns
         run: |
           git clone https://github.com/1ndianl33t/Gf-Patterns.git
@@ -88,12 +108,17 @@ jobs:
           domain="${{ matrix.domain }}"
           echo "--- Processing domain: $domain ---"
           mkdir -p "results/$domain"
+          OUTDIR="results/$domain"
           Gau_blacklist="png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image"
           
           URO_BLACKLIST="css ico jpg jpeg png bmp svg img gif mp4 flv ogv webm webp mov mp3 m4a m4p scss tif tiff ttf otf woff woff2 bmp ico eot htc rtf swf image js"
           echo "[*] Fetching and filtering URLs for $domain"
-          echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams -o "results/$domain/filtered.txt"
+          echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
 
+          timelimitx -t 10s 'waymore -i "$domain" -mode U -oU "$OUTDIR/waymore.txt" 2>/dev/null'
+
+          cat "$OUTDIR/waymore.txt" | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
+          
           echo "[*] Extracting vulnerability candidates with gf"
           cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
           cat "results/$domain/filtered.txt" | gf lfi > "results/$domain/lfi.txt"
