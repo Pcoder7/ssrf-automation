@@ -1,4 +1,4 @@
-name: Automated Subdomain & Live Host Scan
+name: Automated URL & Vulnerability Scan
 
 on:
   schedule:
@@ -22,34 +22,24 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y curl git python3 python3-pip
 
-      # Install httpx
-      - name: Install httpx
-        run: |
-          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-
-      # Install Gau
-      - name: Install waybackurls
+      # CHANGED: Step name corrected for clarity
+      - name: Install gau
         run: |
           go install github.com/lc/gau/v2/cmd/gau@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH          
+          echo "$HOME/go/bin" >> $GITHUB_PATH
 
-      # Install gf
       - name: Install gf
         run: |
           go install -v github.com/tomnomnom/gf@latest
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
-      # Setup gf-patterns
       - name: Setup gf-patterns
         run: |
           git clone https://github.com/1ndianl33t/Gf-Patterns.git
           mkdir -p ~/.gf
           cp Gf-Patterns/*.json ~/.gf
-            # Remove the cloned folder so it doesn't interfere with git commits
           rm -rf Gf-Patterns
 
-      # Install pipx and then uro (Python tool)
       - name: Install pipx and uro
         run: |
           python3 -m pip install --user pipx
@@ -60,63 +50,59 @@ jobs:
       - name: Create results directory
         run: mkdir -p results
 
-      # Debug: Display the contents of domains.txt with special characters visible
       - name: Display domains.txt content
         run: cat -A domains.txt
 
+      # CHANGED: This is the main logic block that has been heavily modified
       - name: Process Domain Recon
         run: |
-          Gau_blacklist=png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image
+          GAU_BLACKLIST="png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image"
+          
+          URO_BLACKLIST="css ico jpg jpeg png bmp svg img gif mp4 flv ogv webm webp mov mp3 m4a m4p scss tif tiff ttf otf woff woff2 bmp ico eot htc rtf swf image js"
           if [ ! -f domains.txt ]; then
             echo "domains.txt file not found!"
             exit 1
           fi
-          # Convert domains.txt to Unix format (remove carriage returns)
+          
           sed -i 's/\r$//' domains.txt
-          # Load all domains into an array, ignoring empty lines
           readarray -t domains < domains.txt
+          
           for domain in "${domains[@]}"; do
             if [ -z "$domain" ]; then
               echo "Empty line detected; skipping..."
-            continue
+              continue
             fi
+          
             echo "Processing domain: '$domain'"
             mkdir -p "results/$domain"
-            echo "[*] Running subfinder for $domain"
-            subfinder -d "$domain" -silent -o "results/$domain/subdomains.txt"
-            echo "[*] Filtering live hosts with httpx"
-            cat "results/$domain/subdomains.txt" | httpx -silent -o "results/$domain/live.txt"
-            echo "[*] Fetching archived URLs with waybackurls"
-            cat "results/$domain/live.txt" | waybackurls > "results/$domain/wayback.txt"
-            echo "[*] Fetching archived URLs with Gau"
-            cat "results/$domain/live.txt" | gau --blacklist $Gau_blacklist --o "results/$domain/gau.txt"
-            echo "[*] Filtering URLs with uro"
-            cat "results/$domain/wayback.txt" "results/$domain/gau.txt" | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
-            echo "[*] Extracting SSRF candidates with gf"
-            gf -dump ssrf
-            gf -dump redirect
-            gf -dump lfi
-            gf -dump sqli
+          
+            # MODIFIED: Removed subfinder and httpx.
+            # Now, we run gau directly on the root domain and pipe its output
+            # through the filtering and sorting tools in one efficient command.
+            echo "[*] Fetching and filtering URLs for $domain with gau and uro"
+            echo "$domain" | gau --blacklist $GAU_BLACKLIST | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
+          
+            echo "[*] Extracting vulnerability candidates with gf"
+            # These gf commands now run on the directly generated filtered.txt
             cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
             cat "results/$domain/filtered.txt" | gf lfi > "results/$domain/lfi.txt"
             cat "results/$domain/filtered.txt" | gf sqli > "results/$domain/sqli.txt"
           done
 
+      # CHANGED: Updated to show only the files that are now being created
       - name: Show Output Files
         run: |
           while IFS= read -r domain || [ -n "$domain" ]; do
             if [ -z "$domain" ]; then continue; fi
             echo "=== Results for $domain ==="
-            echo "--- subdomains.txt ---"
-            cat results/"$domain"/subdomains.txt || echo "Not found"
-            echo "--- live.txt ---"
-            cat results/"$domain"/live.txt || echo "Not found"
-            echo "--- wayback.txt ---"
-            cat results/"$domain"/wayback.txt || echo "Not found"
             echo "--- filtered.txt ---"
-            cat results/"$domain"/filtered.txt || echo "Not found"
+            cat "results/$domain/filtered.txt" || echo "Not found"
             echo "--- ssrf.txt ---"
-            cat results/"$domain"/ssrf.txt || echo "Not found"
+            cat "results/$domain/ssrf.txt" || echo "Not found"
+            echo "--- sqli.txt ---"
+            cat "results/$domain/sqli.txt" || echo "Not found"
+            echo "--- lfi.txt ---"
+            cat "results/$domain/lfi.txt" || echo "Not found"
           done < domains.txt
 
       - name: Upload Results as Artifact
