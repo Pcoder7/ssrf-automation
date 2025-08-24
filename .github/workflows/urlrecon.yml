@@ -109,58 +109,77 @@ jobs:
   # JOB 3: Aggregates all results and commits them sequentially. This is the "loop" you requested.
   aggregate-and-commit:
     needs: recon-parallel
-    if: always() # This ensures this job runs even if some parallel recon jobs failed.
+    if: always() # Ensures this job runs even if some parallel recon jobs failed.
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository 
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Download all domain results from artifacts
+      - name: Install rsync
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y rsync
+
+      - name: Create Directory for New Scan Results
+        run: mkdir new-results
+
+      - name: Download Artifacts into New Results Directory
         uses: actions/download-artifact@v4
         with:
-          path: . # Download to the workspace root
-          pattern: recon-results-* # Match all artifacts from the parallel jobs
-          merge-multiple: true # Merges all 'results' directories into one
+          path: new-results
+          pattern: recon-results-*
+          merge-multiple: true
 
-      - name: Prepare and Commit Results
+      - name: Differentiate and Commit Changes
+        id: commit
         run: |
-          echo "Preparing results for commit..."
+          echo "Preparing to differentiate and commit results..."
           
-          # Step 1: Remove any binary files.
-          find results -type f -print0 | while IFS= read -r -d '' file; do
+          # Step 1: Prepare the new results for comparison.
+          echo "Cleaning new results before comparison..."
+          find new-results -type f -print0 | while IFS= read -r -d '' file; do
             if [[ $(file --brief --mime-encoding "$file") == "binary" ]]; then
               echo "Removing binary file: $file"
               rm "$file"
             fi
           done
-
-          # Step 2: Clean up any empty results to prevent commit errors.
-          # First, delete all zero-byte files within the results directory.
+          find new-results -type f -size 0 -delete
+          find new-results -type d -empty -delete
           
-          echo "Deleting empty (0-byte) result files..."
-          find results -type f -size 0 -delete
+          # Step 2: Synchronize the new results with the repository's working directory.
+          echo "Synchronizing new results with the repository..."
+          rsync -av --delete new-results/results/ results/
           
-          # Second, delete any directories that are now empty after the file cleanup.
-          echo "Deleting empty result directories..."
-          find results -type d -empty -delete
-
           # Step 3: Configure Git user.
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Step 4: Add all remaining, non-empty results to the staging area.
-     
+          # Step 4: Add all changes and check if a commit is necessary.
           git add results/
           
-          # Step 5: Reliably check if there are any changes STAGED for commit.
-          # `git diff --staged --quiet` exits with 1 if there are staged changes, and 0 if not.
-          # The '!' inverts this, so the 'if' block runs only when there ARE changes.
           if ! git diff --staged --quiet; then
-            echo "New results found. Committing to the repository."
-            git commit -m "recon: Automated scan results"
-            git push
+            echo "Changes detected. Committing to the repository."
+            git commit -m "recon: Automated Url Recon Scan result"
+            echo "pushed=true" >> $GITHUB_OUTPUT
           else
-            echo "No new results to commit."
+            echo "No new changes to commit."
+            echo "pushed=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Push Changes with Retry Logic
+        if: steps.commit.outputs.pushed == 'true'
+        run: |
+          for i in {1..5}; do
+            echo "Attempting to push changes (attempt $i/5)..."
+            git push && break || true
+            if [ $i -eq 5 ]; then
+              echo "All 5 push attempts failed. The job will now fail."
+              exit 1
+            fi
+            echo "Push failed. Retrying in 20 seconds..."
+            sleep 20
+          done
+          echo "Push successful."
+
