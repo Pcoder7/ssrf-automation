@@ -137,7 +137,15 @@ jobs:
         run: |
           echo "Preparing to differentiate and commit results..."
           
-          # Step 1: Prepare the new results for comparison.
+          # Step 1: Check if any results were actually downloaded.
+          # We check if the new-results directory is empty. If it is, we stop.
+          if [ -z "$(ls -A new-results)" ]; then
+            echo "No artifacts were downloaded. Nothing to commit."
+            echo "pushed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Step 2: Prepare the new results for comparison.
           echo "Cleaning new results before comparison..."
           find new-results -type f -print0 | while IFS= read -r -d '' file; do
             if [[ $(file --brief --mime-encoding "$file") == "binary" ]]; then
@@ -148,20 +156,23 @@ jobs:
           find new-results -type f -size 0 -delete
           find new-results -type d -empty -delete
           
-          # Step 2: Synchronize the new results with the repository's working directory.
+          # --- THE CRITICAL FIX IS HERE ---
+          # Step 3: Synchronize the new results with the repository's working directory.
+          # The source is 'new-results/' (the contents of the directory).
+          # The destination is 'results/' (the target directory in the repository).
           echo "Synchronizing new results with the repository..."
-          rsync -av --delete new-results/results/ results/
+          rsync -av --delete new-results/ results/
           
-          # Step 3: Configure Git user.
+          # Step 4: Configure Git user.
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # Step 4: Add all changes and check if a commit is necessary.
+          # Step 5: Add all changes and check if a commit is necessary.
           git add results/
           
           if ! git diff --staged --quiet; then
             echo "Changes detected. Committing to the repository."
-            git commit -m "recon: Automated Url Recon Scan result"
+            git commit -m "recon: Automated scan results"
             echo "pushed=true" >> $GITHUB_OUTPUT
           else
             echo "No new changes to commit."
