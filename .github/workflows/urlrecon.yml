@@ -110,11 +110,15 @@ jobs:
           mkdir -p "results/$domain"
           OUTDIR="results/$domain"
           Gau_blacklist="png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image"
+
           
           URO_BLACKLIST="css ico jpg jpeg png bmp svg img gif mp4 flv ogv webm webp mov mp3 m4a m4p scss tif tiff ttf otf woff woff2 bmp ico eot htc rtf swf image js"
+          
           echo "[*] Fetching and filtering URLs for $domain"
-          echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
 
+          waymore --help 
+          echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
+        
           timelimitx -t 10s 'waymore -i "$domain" -mode U -oU "$OUTDIR/waymore.txt" 2>/dev/null'
 
           cat "$OUTDIR/waymore.txt" | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
