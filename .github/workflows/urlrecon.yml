@@ -22,22 +22,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y curl git python3 python3-pip
 
-      # Install subfinder
-      - name: Install subfinder
-        run: |
-          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-
       # Install httpx
       - name: Install httpx
         run: |
           go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-
-      # Install waybackurls
-      - name: Install waybackurls
-        run: |
-          go install -v github.com/tomnomnom/waybackurls@latest
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
       # Install Gau
