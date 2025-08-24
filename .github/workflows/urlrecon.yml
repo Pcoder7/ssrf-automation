@@ -116,10 +116,10 @@ jobs:
           
           echo "[*] Fetching and filtering URLs for $domain"
 
-          waymore --help 
+
           echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
         
-          timelimitx -t 10m "waymore -i \"$domain\" -mode U -oU \"$OUTDIR/waymore.txt\" "
+          timelimitx -t 10m "waymore -i \"$domain\" -mode U -oU \"$OUTDIR/waymore.txt\""
 
           cat "$OUTDIR/waymore.txt" | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
           
