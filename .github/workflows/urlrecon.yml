@@ -1,4 +1,4 @@
-name: Automated URL & Vulnerability Scan
+name: Parallel Recon with Sequential Commit
 
 on:
   schedule:
@@ -9,29 +9,68 @@ permissions:
     contents: write
 
 jobs:
-  recon:
+  # JOB 1: Prepares the list of domains to create the parallel job matrix.
+  setup-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      domains: ${{ steps.set-matrix.outputs.domains }}
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
-      - name: Update & Install Dependencies
+      - name: Create domain matrix from domains.txt
+        id: set-matrix
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y curl git python3 python3-pip
+          # Exit gracefully if domains.txt does not exist
+          if [ ! -f domains.txt ]; then
+            echo "domains.txt file not found! Skipping."
+            echo "domains=[]" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # Sanitize (remove carriage returns, empty/commented lines) and convert to a JSON array for the matrix.
+          SANITIZED_DOMAINS=$(cat domains.txt | sed 's/\r$//' | grep -v '^\s*$\|^\s*#')
+          JSON_DOMAINS=$(echo "$SANITIZED_DOMAINS" | jq -R . | jq -s .)
+          echo "domains=$JSON_DOMAINS" >> $GITHUB_OUTPUT
 
-      # CHANGED: Step name corrected for clarity
-      - name: Install gau
+  # JOB 2: Runs recon tools in parallel for each domain from the matrix.
+  recon-parallel:
+    needs: setup-matrix
+    # Only run this job if the setup job actually found domains to process.
+    if: needs.setup-matrix.outputs.domains != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # IMPORTANT: If one domain scan fails, the others will continue.
+      matrix:
+        domain: ${{ fromJson(needs.setup-matrix.outputs.domains) }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+
+      - name: Cache Go modules and build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+            
+      - name: Install Tools (gau, gf, uro)
         run: |
           go install github.com/lc/gau/v2/cmd/gau@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
-
-      - name: Install gf
-        run: |
           go install -v github.com/tomnomnom/gf@latest
+          python3 -m pip install --user pipx
+          python3 -m pipx ensurepath
+          pipx install uro
           echo "$HOME/go/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Setup gf-patterns
         run: |
@@ -40,82 +79,69 @@ jobs:
           cp Gf-Patterns/*.json ~/.gf
           rm -rf Gf-Patterns
 
-      - name: Install pipx and uro
+      - name: Process Recon for ${{ matrix.domain }}
         run: |
-          python3 -m pip install --user pipx
-          python3 -m pipx ensurepath
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-          pipx install uro
-
-      - name: Create results directory
-        run: mkdir -p results
-
-      - name: Display domains.txt content
-        run: cat -A domains.txt
-
-      # CHANGED: This is the main logic block that has been heavily modified
-      - name: Process Domain Recon
-        run: |
-          GAU_BLACKLIST="png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image"
+          domain="${{ matrix.domain }}"
+          echo "--- Processing domain: $domain ---"
+          mkdir -p "results/$domain"
+          Gau_blacklist="png,jpg,gif,css,ico,jpeg,bmp,svg,img,mp4,flv,ogv,webm,webp,mov,mp3,m4a,m4p,scss,tif,tiff,ttf,otf,woff,woff2,eot,htc,rtf,swf,image"
           
           URO_BLACKLIST="css ico jpg jpeg png bmp svg img gif mp4 flv ogv webm webp mov mp3 m4a m4p scss tif tiff ttf otf woff woff2 bmp ico eot htc rtf swf image js"
-          if [ ! -f domains.txt ]; then
-            echo "domains.txt file not found!"
-            exit 1
-          fi
-          
-          sed -i 's/\r$//' domains.txt
-          readarray -t domains < domains.txt
-          
-          for domain in "${domains[@]}"; do
-            if [ -z "$domain" ]; then
-              echo "Empty line detected; skipping..."
-              continue
-            fi
-          
-            echo "Processing domain: '$domain'"
-            mkdir -p "results/$domain"
-          
-            # MODIFIED: Removed subfinder and httpx.
-            # Now, we run gau directly on the root domain and pipe its output
-            # through the filtering and sorting tools in one efficient command.
-            echo "[*] Fetching and filtering URLs for $domain with gau and uro"
-            echo "$domain" | gau --subs --blacklist $GAU_BLACKLIST | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
-          
-            echo "[*] Extracting vulnerability candidates with gf"
-            # These gf commands now run on the directly generated filtered.txt
-            cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
-            cat "results/$domain/filtered.txt" | gf lfi > "results/$domain/lfi.txt"
-            cat "results/$domain/filtered.txt" | gf sqli > "results/$domain/sqli.txt"
-          done
+          echo "[*] Fetching and filtering URLs for $domain"
+          echo "$domain" | gau --subs --blacklist $Gau_blacklist | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams -o "results/$domain/filtered.txt"
 
-      # CHANGED: Updated to show only the files that are now being created
-      - name: Show Output Files
-        run: |
-          while IFS= read -r domain || [ -n "$domain" ]; do
-            if [ -z "$domain" ]; then continue; fi
-            echo "=== Results for $domain ==="
-            echo "--- filtered.txt ---"
-            cat "results/$domain/filtered.txt" || echo "Not found"
-            echo "--- ssrf.txt ---"
-            cat "results/$domain/ssrf.txt" || echo "Not found"
-            echo "--- sqli.txt ---"
-            cat "results/$domain/sqli.txt" || echo "Not found"
-            echo "--- lfi.txt ---"
-            cat "results/$domain/lfi.txt" || echo "Not found"
-          done < domains.txt
+          echo "[*] Extracting vulnerability candidates with gf"
+          cat "results/$domain/filtered.txt" | gf ssrf > "results/$domain/ssrf.txt"
+          cat "results/$domain/filtered.txt" | gf lfi > "results/$domain/lfi.txt"
+          cat "results/$domain/filtered.txt" | gf sqli > "results/$domain/sqli.txt"
 
-      - name: Upload Results as Artifact
+      - name: Upload Domain Results as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: recon-results
-          path: results/
+          name: recon-results-${{ matrix.domain }} # Unique artifact for each domain
+          path: results/ # Uploads the results specific to this domain job
+          retention-days: 1
 
-      - name: Commit and push
+  # JOB 3: Aggregates all results and commits them sequentially. This is the "loop" you requested.
+  aggregate-and-commit:
+    needs: recon-parallel
+    if: always() # This ensures this job runs even if some parallel recon jobs failed.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Download all domain results from artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: . # Download to the workspace root
+          pattern: recon-results-* # Match all artifacts from the parallel jobs
+          merge-multiple: true # Merges all 'results' directories into one
+
+      - name: Commit Text-Only Results
         run: |
-          date > generated.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
+          echo "Preparing to commit results..."
+          
+          # Step 1: Remove any binary files to ensure only text is committed.
+          find results -type f -print0 | while IFS= read -r -d '' file; do
+            if [[ $(file --brief --mime-encoding "$file") == "binary" ]]; then
+              echo "Removing binary file: $file"
+              rm "$file"
+            fi
+          done
+          
+          # Step 2: Check if there are any changes to commit to avoid empty commit errors.
+          if [[ -z $(git status --porcelain) ]]; then
+            echo "No new results or changes to commit."
+            exit 0
+          fi
+          
+          # Step 3: Configure Git and commit all results in a single, safe transaction.
+          echo "New results found. Committing to the repository."
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add results/
+          git commit -m "recon: Automated scan results"
           git push
