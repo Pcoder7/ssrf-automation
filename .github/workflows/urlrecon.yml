@@ -130,22 +130,30 @@ jobs:
           
           # Step 1: Remove any binary files to ensure only text is committed.
           find results -type f -print0 | while IFS= read -r -d '' file; do
-            if [[ $(file --brief --mime-encoding "$file") == "binary" ]]; then
+            if [[ $(file --brief --mime-encoding "$file") == "binary" ]];
+            then
               echo "Removing binary file: $file"
               rm "$file"
             fi
           done
           
-          # Step 2: Check if there are any changes to commit to avoid empty commit errors.
+          # Step 2: Find and delete any result directories that are empty.
+          # This prevents the 'nothing added to commit' error.
+          
+          echo "Cleaning up empty result directories..."
+          find results/* -type d -empty -delete
+          
+          # Step 3: Check if there are any *actual* changes left to commit.
           if [[ -z $(git status --porcelain) ]]; then
             echo "No new results or changes to commit."
             exit 0
           fi
           
-          # Step 3: Configure Git and commit all results in a single, safe transaction.
+          # Step 4: Configure Git and commit all results in a single, safe transaction.
           echo "New results found. Committing to the repository."
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add results/
-          git commit -m "recon: Automated scan results"
+          git commit -m "recon: Automated Url Recon Results"
           git push
+
