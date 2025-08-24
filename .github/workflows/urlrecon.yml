@@ -80,7 +80,7 @@ jobs:
             # Now, we run gau directly on the root domain and pipe its output
             # through the filtering and sorting tools in one efficient command.
             echo "[*] Fetching and filtering URLs for $domain with gau and uro"
-            echo "$domain" | gau --blacklist $GAU_BLACKLIST | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
+            echo "$domain" | gau --subs --blacklist $GAU_BLACKLIST | sort -u | uro --filters hasparams > "results/$domain/filtered.txt"
           
             echo "[*] Extracting vulnerability candidates with gf"
             # These gf commands now run on the directly generated filtered.txt
