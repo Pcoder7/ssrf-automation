@@ -27,10 +27,14 @@ jobs:
             echo "domains=[]" >> $GITHUB_OUTPUT
             exit 0
           fi
-          # Sanitize (remove carriage returns, empty/commented lines) and convert to a JSON array for the matrix.
-          SANITIZED_DOMAINS=$(cat domains.txt | sed 's/\r$//' | grep -v '^\s*$\|^\s*#')
-          JSON_DOMAINS=$(echo "$SANITIZED_DOMAINS" | jq -R . | jq -s .)
+          
+
+          SANITIZED_DOMAINS=$(awk '!/^\s*#/ && !/^\s*$/ { gsub(/^[ \t]+|[ \t]+$/, ""); print }' domains.txt)
+          
+          JSON_DOMAINS=$(echo "$SANITIZED_DOMAINS" | jq -R . | jq -sc .)
+          
           echo "domains=$JSON_DOMAINS" >> $GITHUB_OUTPUT
+          echo "Matrix created: $JSON_DOMAINS"
 
   # JOB 2: Runs recon tools in parallel for each domain from the matrix.
   recon-parallel:
