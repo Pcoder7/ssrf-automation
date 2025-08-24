@@ -124,36 +124,43 @@ jobs:
           pattern: recon-results-* # Match all artifacts from the parallel jobs
           merge-multiple: true # Merges all 'results' directories into one
 
-      - name: Commit Text-Only Results
+      - name: Prepare and Commit Results
         run: |
-          echo "Preparing to commit results..."
+          echo "Preparing results for commit..."
           
-          # Step 1: Remove any binary files to ensure only text is committed.
+          # Step 1: Remove any binary files.
           find results -type f -print0 | while IFS= read -r -d '' file; do
-            if [[ $(file --brief --mime-encoding "$file") == "binary" ]];
-            then
+            if [[ $(file --brief --mime-encoding "$file") == "binary" ]]; then
               echo "Removing binary file: $file"
               rm "$file"
             fi
           done
+
+          # Step 2: Clean up any empty results to prevent commit errors.
+          # First, delete all zero-byte files within the results directory.
           
-          # Step 2: Find and delete any result directories that are empty.
-          # This prevents the 'nothing added to commit' error.
+          echo "Deleting empty (0-byte) result files..."
+          find results -type f -size 0 -delete
           
-          echo "Cleaning up empty result directories..."
-          find results/* -type d -empty -delete
-          
-          # Step 3: Check if there are any *actual* changes left to commit.
-          if [[ -z $(git status --porcelain) ]]; then
-            echo "No new results or changes to commit."
-            exit 0
-          fi
-          
-          # Step 4: Configure Git and commit all results in a single, safe transaction.
-          echo "New results found. Committing to the repository."
+          # Second, delete any directories that are now empty after the file cleanup.
+          echo "Deleting empty result directories..."
+          find results -type d -empty -delete
+
+          # Step 3: Configure Git user.
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Step 4: Add all remaining, non-empty results to the staging area.
+     
           git add results/
-          git commit -m "recon: Automated Url Recon Results"
-          git push
-
+          
+          # Step 5: Reliably check if there are any changes STAGED for commit.
+          # `git diff --staged --quiet` exits with 1 if there are staged changes, and 0 if not.
+          # The '!' inverts this, so the 'if' block runs only when there ARE changes.
+          if ! git diff --staged --quiet; then
+            echo "New results found. Committing to the repository."
+            git commit -m "recon: Automated scan results"
+            git push
+          else
+            echo "No new results to commit."
+          fi
