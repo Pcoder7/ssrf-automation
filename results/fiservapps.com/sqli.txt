@@ -406,4 +406,3 @@ https://affinityplus.architect-cert.fiservapps.com/EditSecureForm.aspx?SF_ID=2
 https://scec-online.fiservapps.com/banking/Accounts/Details/TransactionDetails?AccountIndex=2&TransactionId=U50ey1k3KHlbLW3K0tK3M47y4Na47gRpqnaxH3Xo8t-HKG1yhzOJT7WdwDHttow5Ymw47xWaN9nQUDOUugxUlBh2kVxZf-fFbSu9g1dKoao1&TransactionDate=%2008-13-2022
 https://scec-online.fiservapps.com/auth/SignIn?wa=wsignin1.0&wtrealm=https://scec-online.fiservapps.com/banking/&wctx=rm&id=passive&ru=%2fbanking%2f&wct=2019-05-24T13:26:54Z
 https://scec-online.fiservapps.com/auth/?wa=wsignin1.0&wtrealm=https://scec-online.fiservapps.com/banking/&wctx=rm&id=passive&ru=/banking/Accounts/Details/TransactionDetails?AccountIndex&TransactionId=-zbdtlEqkTF0tx6UDnOKQnmnN6zs0z5gRbAxCqGaY8MGA9LSJyuqXtaaIuTYKvI-UauahGm8Dfi5x410eBD6syXwcXz2Cfl8j-2NrABnm_I1&TransactionDate=%2008-17-2022&wct=2023-02-22T20:41:49Z
-https://epayreports-ha.fiservapps.com/ClientRepo/signin?flowId=AtfTOotS3Z
