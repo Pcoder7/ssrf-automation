@@ -119,7 +119,9 @@ jobs:
 
           echo "$domain" | gau --subs --providers wayback,commoncrawl --blacklist "$Gau_blacklist" | sort -u | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
         
-          timelimitx -t 30m "waymore -i \"$domain\" -mode U -oU \"$OUTDIR/waymore.txt\" 2>/dev/null"
+          waymore -i "$domain" -mode U -oU "$OUTDIR/waymore.txt" 
+
+          wc -l "$OUTDIR/waymore.txt" 
         
           cat "$OUTDIR/waymore.txt" | uro -b "$URO_BLACKLIST" --filters hasparams | anew -q "results/$domain/filtered.txt"
           
