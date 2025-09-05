@@ -81,3 +81,16 @@ http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D0
 http://testasp.vulnweb.com/t/xss.html?gestao=on&grupo=&isCnpj=true&message=&name=axywktxa&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
 http://testasp.vulnweb.com:80/Register.asp?RetURL=/Register.asp
 http://testasp.vulnweb.com:80/Login.asp?RetURL=/Search.asp
+http://testphp.vulnweb.com/artists.php?file=../../../etc/passwd
+http://testphp.vulnweb.com/search.php?test=query%E2%80%9D
+http://testphp.vulnweb.com/search.php?test=query&cat=123&ppl=1fhhahwul
+http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D22
+http://testasp.vulnweb.com/Register.asp?RetURL=/Search.asp?
+http://testasp.vulnweb.com:80/Login.asp?RetURL=/login.asp
+http://testasp.vulnweb.com:80/Register.asp?RetURL=/login.asp
+http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D21
+http://testasp.vulnweb.com/t/xss.html?grupo=&isCnpj=true&message=&name=axywktxa&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
+http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowthread.asp%3Fid%3D18
+http://testasp.vulnweb.com/t/fit.txt?gestao=on&grupo=&isCnpj=true&message=&name=hnkbkvfv&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
+http://testphp.vulnweb.com/search.php?test=
+http://testasp.vulnweb.com:80/Login.asp?RetURL=/Register.asp
