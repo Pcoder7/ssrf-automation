@@ -164,3 +164,10 @@ http://testap.vulnweb.com:80/listproducts.php?cat=2
 http://testhp.vulnweb.com:80/listproducts.php?cat=4
 http://restphp.vulnweb.com:80/listproducts.php?cat=4
 http://testasp.vulnweb.com:80/Login.asp?RetURL=/Register.asp
+http://testphp.vulnweb.com:80/listproducts.php?cat=3
+http://testphp.vulnweb.com/listproducts.php?cat=-1+union+select+1,2,3,4,5,6,7,8,9,10,11--
+http://testphp.vulnweb.com/listproducts.php?cat=123&zfdfasdf=124fff...
+http://testphp.vulnweb.com/listproducts.php?artist=123&asdf=ff&cat=123DalFox
+http://testasp.vulnweb.com/Login.asp?RetURL=4290
+http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowforum.asp%3Fid%3D0
+http://testasp.vulnweb.com/t/fit.txt?grupo=&isCnpj=true&message=&name=hnkbkvfv&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true

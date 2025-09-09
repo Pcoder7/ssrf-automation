@@ -94,3 +94,7 @@ http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowthread.asp%3Fid%3D18
 http://testasp.vulnweb.com/t/fit.txt?gestao=on&grupo=&isCnpj=true&message=&name=hnkbkvfv&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
 http://testphp.vulnweb.com/search.php?test=
 http://testasp.vulnweb.com:80/Login.asp?RetURL=/Register.asp
+http://testphp.vulnweb.com/search.php?test=query'+AND+(SELECT+*+FROM+(SELECT(SLEEP(5
+http://testasp.vulnweb.com/Login.asp?RetURL=4290
+http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowforum.asp%3Fid%3D0
+http://testasp.vulnweb.com/t/fit.txt?grupo=&isCnpj=true&message=&name=hnkbkvfv&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
