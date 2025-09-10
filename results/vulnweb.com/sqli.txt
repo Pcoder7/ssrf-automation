@@ -269,3 +269,21 @@ http://3testphp.vulnweb.com:80/comment.php?aid=2
 http://testaspnet.vulnweb.com/Comments.aspx?id=2
 http://testaspnet.vulnweb.com:80/ReadNews.aspx?id=3&NewsAd=ads/def.html
 http://testaspnet.vulnweb.com:80/Comments.aspx?id=3
+http://testasp.vulnweb.com/Search.asp?tfSearch=Mert
+http://testasp.vulnweb.com/t/fit.txt?neighborhood=1&newRequest=false&number=1&operation=cad&origin=portalTicketRequestMaterial&phone=555-666-0606&sizes1_2C9EE2533D701E8C013D88534A4441D1=on&sizes1_2C9EE2533D701E8C013D8854E7144A6F=on&sizes1_2C9EE2533D701E8C013D88555D43517E=on&sizes1_2C9EE2533D701E8C013D885631825BFD=on&sizes2_2C9EE2533D701E8C013D8854E7144A6F=on&sizes2_2C9EE2533D701E8C013D88555D43517E=on&sizes2_2C9EE2533D701E8C013D885631825BFD=on&sizes3_2C9EE2533D701E8C013D88534A4441D1=on&sizes3_2C9EE2533D701E8C013D88555D43517E=on&state=NY
+http://testasp.vulnweb.com/showforum.asp?id=0  order by 1--
+http://testhtml5.vulnweb.com/report?id=6f2d3923bd9f39b07cd0bbaa30a5d523
+http://testhtml5.vulnweb.com/like?id=d11aec1e3f0c5b0ad4216a782f8d28c8
+http://testhtml5.vulnweb.com/comment?id=a3761ccd0d4419e7e9d0c5a0b5583445
+http://testphp.vulnweb.com/AJAX/infoartist.php?id=-1189%20UNION%20ALL%20SELECT%20CONCAT%280x7178706a71%2C0x734a526c535367537751%2C0x71706b6a71%29%2CNULL--%20-
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/details.php?id=-1+OR+17-7%3D10+PROCEDURE+ANALYSE
+http://testphp.vulnweb.com/comment.php?aid=1A01
+http://testphp.vulnweb.com/index.php?id=3381&user=1
+http://testphp.vulnweb.com/?%3Fid=1.%28%27.%22%2C%2C%28%2C%29
+http://testphp.vulnweb.com/login.php?id=1%27%29%20AND%20%28SELECT%20NULLIFZERO%28hashcode%28NULL%29%29%29%20IS%20NULL%20AND%20%28%27KPgJ%27%3D%27KPgJ
+http://testhtml5.vulnweb.com:80/comment?id=7906144d5b0e85adfdf752593fdc3da6
+http://testhtml5.vulnweb.com:80/like?id=617c785e96f91add44af3020e2c6064b
+http://testhtml5.vulnweb.com:80/report?id=6f2d3923bd9f39b07cd0bbaa30a5d523
+http://testephp.vulnweb.com:80/comment.php?aid=3
+http://testaspnet.vulnweb.com:80/Comments.aspx?id=2
+http://testaspnet.vulnweb.com/ReadNews.aspx?id=2
