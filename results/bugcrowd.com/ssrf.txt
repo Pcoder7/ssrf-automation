@@ -735,16 +735,3 @@ https://bugcrowd.com/westernunion/crowdstream.json?page=1&filter_by=disclosures
 https://bugcrowd.com/isc2-ogmbb?preview=a1eb408ea90e5556747293f378c27693
 https://bugcrowd.com/halp?preview=296b008a9382bd523ed5d9a8194c2f9c
 https://www.bugcrowd.com/?URL=https%3A%2F%2Fsmartmarketingstuff.click
-https://identity.bugcrowd.com/login?user_hint=tracker&returnTo=https://bugcrowd.com/CjLegacion
-https://identity.bugcrowd.com/login?sort_direction=desc&page=3&user_hint=tracker&returnTo=https%3A%2F%2Fbugcrowd.com%2Fengagements%3Fcategory%3Dbug_bounty&sort_by=promoted
-https://identity.bugcrowd.com/login?sort_direction=desc&search=im&page=1&user_hint=researcher&returnTo=https%3A%2F%2Fbugcrowd.com%2Fengagements%3Fcategory%3Dbug_bounty&sort_by=promoted
-https://identity.bugcrowd.com/login?page=6&user_hint=researcher&returnTo=https%3A%2F%2Fbugcrowd.com%2Fengagements%3Fcategory%3Dbug_bounty&target_categories=website&sort_by=promoted&sort_direction=desc
-https://identity.bugcrowd.com/login?sort_direction=desc&page=2&user_hint=tracker&returnTo=https%3A%2F%2Fbugcrowd.com%2Fengagements%3Fcategory%3Dbug_bounty&scope_rank=2&sort_by=promoted
-https://identity.bugcrowd.com/login?sort_by=promoted&sort_direction=desc&page=2&user_hint=tracker&returnTo=https%3A%2F%2Fbugcrowd.com%2Fengagements%3Fcategory%3Dbug_bounty&rewards_priority=all&rewards_operator=gte&rewards_amount=10000&scope_rank=1
-https://identity.bugcrowd.com/login?user_hint=tracker&returnTo=https://tracker.bugcrowd.com/onboarding/programs/standard_pentests?variant&utm_term=standard_pentest_large&utm_campaign=7010K000001fC72QAE&utm_source=Self-Service
-https://forum.bugcrowd.com/c/bugcrowd-discussion/6?page=2
-https://forum.bugcrowd.com/c/ask-a-hacker/34?page=3
-https://forum.bugcrowd.com/c/bugcrowd-official/5?no_subcategories=false&page=2
-https://forum.bugcrowd.com/c/levelup/36?page=1
-http://bugcrowd.com/external_redirect?site=https://newsiraniannew.blogspot.com/2022/09/485.html
-https://researcherdocs.bugcrowd.com/changelog/?page=3
