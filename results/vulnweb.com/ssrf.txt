@@ -108,3 +108,4 @@ http://testasp.vulnweb.com:80/Register.asp?RetURL=/Login.asp
 http://testphp.vulnweb.com/search.php?test=query%20%2b%252
 http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D10
 http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowthread.asp%3Fid%3D5
+http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowforum.asp%3Fid%3D2
