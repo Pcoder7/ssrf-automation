@@ -342,3 +342,15 @@ http://testhtml5.vulnweb.com/report?id=af9290a9e8bcd162818d45e5de1c6bef
 http://testasp.vulnweb.com/showthread.asp?id=10
 http://testasp.vulnweb.com/t/xss.html?neighborhood=1&newRequest=false&number=1&operation=cad&origin=portalTicketRequestMaterial&phone=555-666-0606&sizes1_2C9EE2533D701E8C013D88555D43517E=on&sizes1_2C9EE2533D701E8C013D885631825BFD=on&sizes2_2C9EE2533D701E8C013D8854E7144A6F=on&sizes2_2C9EE2533D701E8C013D88555D43517E=on&sizes2_2C9EE2533D701E8C013D885631825BFD=on&sizes3_2C9EE2533D701E8C013D88534A4441D1=on&sizes3_2C9EE2533D701E8C013D88555D43517E=on&state=NY
 http://testasp.vulnweb.com/showforum.asp?id=0  and 1 %3E %28select count%28%2A%29 from master..sysdatabases where 1%3D1%29
+http://testasp.vulnweb.com/t/fit.txt?gestao=on&grupo=&isCnpj=true&message=&name=rehceaou&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
+http://testasp.vulnweb.com/showthread.asp?id=9
+http://testasp.vulnweb.com/showforum.asp?id=1
+http://testphp.vulnweb.com/AJAX/infoartist.php?id=4048
+http://testphp.vulnweb.com/?%3Fid=1%27%3BSELECT%20DBMS_PIPE.RECEIVE_MESSAGE%28CHR%28116%29%7C%7CCHR%2877%29%7C%7CCHR%2873%29%7C%7CCHR%28115%29%2C5%29%20FROM%20DUAL--
+http://testphp.vulnweb.com/index.php?%25id%25=1%28%22..%28.%28%2C%27%28&user=2
+http://testhtml5.vulnweb.com:80/like?id=cbe23fd8b33eeb0d70344ee753626698
+http://testhtml5.vulnweb.com:80/report?id=b4d50f99db49ff3d7d612a3b5e82b833
+http://testhtml5.vulnweb.com:80/comment?id=2d378ee65f2095fab6db54fd7ba9e230
+http://testhtml5.vulnweb.com/comment?id=5ea32a19b1b22385bac9ebbcfe74aaf8
+http://testhtml5.vulnweb.com/report?id=87b02f8faa8c1a09c829865c475b5975
+http://testhtml5.vulnweb.com/like?id=a3761ccd0d4419e7e9d0c5a0b5583445
