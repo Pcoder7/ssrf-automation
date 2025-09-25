@@ -354,3 +354,15 @@ http://testhtml5.vulnweb.com:80/comment?id=2d378ee65f2095fab6db54fd7ba9e230
 http://testhtml5.vulnweb.com/comment?id=5ea32a19b1b22385bac9ebbcfe74aaf8
 http://testhtml5.vulnweb.com/report?id=87b02f8faa8c1a09c829865c475b5975
 http://testhtml5.vulnweb.com/like?id=a3761ccd0d4419e7e9d0c5a0b5583445
+http://testphp.vulnweb.com/?%3Fid=1%20AND%208471%3D4506
+http://testphp.vulnweb.com/listproducts.php?id=1%29%22%2C%28%27%2C%28%2C%29.
+http://testphp.vulnweb.com/index.php?%25id%25=1%29%20AND%20%28SELECT%20CHR%2883%29%7C%7CCHR%2868%29%7C%7CCHR%28121%29%7C%7CCHR%28116%29%29%3D%27VFku%27%20AND%20%287427%3D7427&user=2
+http://testphp.vulnweb.com/index.php?id=%252%25%27%29%20AND%20%28SELECT%20ASCII_CHAR%28256%29%20FROM%20SYSTEM.ONEROW%29%20IS%20NULL%20AND%20%28%27Zyhn%27%3D%27Zyhn&user=1
+http://testphp.vulnweb.com/AJAX/infoartist.php?id=1%20OR%20EXTRACTVALUE%281946%2CCONCAT%280x5c%2C0x7176716271%2C%28SELECT%20%28ELT%281946%3D1946%2C1%29%29%29%2C0x716b786b71%29%29
+http://testphp.vulnweb.com/Mod_Rewrite_Shop/details.php?id=-1%20OR%2017-7%3D10%27%29%20AND%203298%3D3298%23
+http://testhtml5.vulnweb.com/like?id=b045813e54c9dfeccaf6bfde5a9e87e4
+http://testhtml5.vulnweb.com/comment?id=9fe7a1ee94d2ed27b641f4471d211610
+http://testhtml5.vulnweb.com/report?id=ebe93fea0729ba34a3a9503dab2e1b98
+http://testasp.vulnweb.com/showthread.asp?id=36
+http://testhtml5.vulnweb.com:80/like?id=e2c2fc2b15ad51ab0f954234af01ecb9
+http://testhtml5.vulnweb.com:80/report?id=5ab51c5b07298787436bfdd2f28f059f

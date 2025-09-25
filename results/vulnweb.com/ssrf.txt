@@ -115,3 +115,6 @@ http://testasp.vulnweb.com:80/Register.asp?RetURL=/Search.asp
 http://testasp.vulnweb.com/t/fit.txt?gestao=on&grupo=&isCnpj=true&message=&name=rehceaou&origin=2C9EE27345CE82C40145CE844E760A17&originName=Ticket%20Transporte%20-%20Portal&pagamento=on&phone=555-666-0606&regularizacao=on&rh=false&tae=false&tan=false&tc=false&terminal=on&tke=false&tr=false&tre=false&tt=true
 http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowthread.asp%3Fid%3D35
 http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D29
+http://testphp.vulnweb.com/search.php?test=queryYou
+http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D13
+http://testasp.vulnweb.com/Register.asp?RetURL=%2FLogin.asp%3F
