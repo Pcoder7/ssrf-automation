@@ -1302,3 +1302,15 @@ http://investor.lpl.com:80/releasedetail.cfm?ReleaseID=696701
 http://investor.lpl.com:80/eventdetail.cfm?eventid=103544
 http://investor.lpl.com:80/secfiling.cfm?filingID=950123-11-72296
 http://investor.lpl.com:80/secfiling.cfm?filingID=1397911-16-315&CIK=1397911
+https://investor.lpl.com/?field_nir_sec_form_group_target_id_1%5B1946%5D=1946&field_nir_news_category_target_id%5B4016%5D=4016&promote=All&order=field_nir_news_date&sort=desc
+http://careers.lpl.com:80/list.aspx?keyword=Enter-Search-Terms&state=careers&category=other
+http://careers.lpl.com:80/searches.aspx?keyword=intern
+http://investor.lpl.com/releasedetail.cfm?ReleaseID=703540
+http://investor.lpl.com/confirm.cfm?destination=/releasedetail.cfm&addFile=814162&wshRemove=yes&ReleaseID=900190
+http://investor.lpl.com/eventdetail.cfm?eventid=123842
+https://accountview.lpl.com/Default.aspx?SiteID=6263
+http://investor.lpl.com:80/releasedetail.cfm?ReleaseID=751042
+http://investor.lpl.com:80/secfiling.cfm?filingID=1397911-14-91&CIK=1397911
+http://investor.lpl.com:80/eventdetail.cfm?eventid=119348
+https://tradedirect.lpl.com/Modules/Navigation/javaScriptSet.php?assetCacheID=1752611749&set=LOGIN
+https://loginv2.lpl.com/verify/?spEntityID=https://login.lpl.com&goto=https://auth.advisor.lpl.com/am/saml2/jsp/idpSSOInit.jsp?%26metaAlias%3D/alpha/advisorfridcprodidp%26spEntityID%3Dhttps%253A%252F%252Flogin.lpl.com%26RelayState%3Dhttps://clientworks.lpl.com%252Fcw%252Fresourcecenter%252Fcontent%252Frc%252Fyour_business%252Flpl-services-group%252Fpartial-book-sales.html%26redirected%3Dtrue
