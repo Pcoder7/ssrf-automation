@@ -383,3 +383,13 @@ http://testasp.vulnweb.com/showthread.asp?id=14
 http://testhtml5.vulnweb.com:80/report?id=87b02f8faa8c1a09c829865c475b5975
 http://testhtml5.vulnweb.com:80/like?id=9fe7a1ee94d2ed27b641f4471d211610
 http://testhtml5.vulnweb.com:80/comment?id=e3824121332e609769f4d1cffe79ad44
+http://testphp.vulnweb.com/?%3Fid=1%27%29%20AND%203726%3D3033%20AND%20%28%27dGrV%27%3D%27dGrV
+http://testphp.vulnweb.com/AJAX/infoartist.php?id=1%20UNION%20ALL%20SELECT%20CONCAT%280x7178706a71%2C0x6b4e4a454c7652494765%2C0x71706b6a71%29%2CNULL%2CNULL--%20-
+http://testphp.vulnweb.com/index.php?id=%252%25%20AND%204678%3D3657&user=1
+http://testhtml5.vulnweb.com/like?id=43601f801cefcdada02e216479b6ea31
+http://testhtml5.vulnweb.com/report?id=94b2176bf4bfc26aa199760463b5ac18
+http://testhtml5.vulnweb.com/comment?id=55d07e974b77d74f6dc469eeb58fa245
+http://testasp.vulnweb.com/showthread.asp?id=3
+http://testasp.vulnweb.com/Search.asp?tfSearch=MertXSS
+http://testhtml5.vulnweb.com:80/comment?id=287458f26278ec644c4588be49dc13d1
+http://testhtml5.vulnweb.com:80/report?id=b045813e54c9dfeccaf6bfde5a9e87e4

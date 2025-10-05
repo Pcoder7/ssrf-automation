@@ -120,3 +120,6 @@ http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D13
 http://testasp.vulnweb.com/Register.asp?RetURL=%2FLogin.asp%3F
 http://testasp.vulnweb.com/Login.asp?RetURL=%2FDefault.asp%3F
 http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowforum.asp%3Fid%3D0%2Band%2B1%3D1--%255BTrue%255D
+http://testphp.vulnweb.com/search.php?test=dd
+http://testasp.vulnweb.com/Login.asp?RetURL=%2Fshowthread.asp%3Fid%3D41
+http://testasp.vulnweb.com/Register.asp?RetURL=%2Fshowthread.asp%3Fid%3D4
