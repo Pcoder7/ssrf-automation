@@ -1,4 +1,2 @@
 vulnweb.com
-fiservapps.com
-lpl.com
-bugcrowd.com
+testphp.vulnweb.com
