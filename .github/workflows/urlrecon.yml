@@ -104,20 +104,19 @@ jobs:
 
       - name: Run Crawlers Concurrently with Interlace
         shell: bash
-        env:
-          TARGET_DOMAIN: ${{ matrix.target }}
         run: |
           # Define a unique output directory for this specific target
-          OUTDIR="results/${{ matrix.target }}"
+          TARGET_DOMAIN="${{ matrix.domain }}"
+          OUTDIR="results/${{ matrix.domain }}"
           mkdir -p "$OUTDIR"
           
 
-          echo "${{ matrix.target }}" > target.txt
+          echo "${{ matrix.domain }}" > target.txt
 
           echo "Step: Verifying environment before execution..."
           echo "1. The current PATH is: $PATH"
           echo "2. Locating the 'interlace' command: $(which interlace)"
-          echo "3. Verifying the target from matrix context: \"${{ matrix.target }}\" "
+          echo "3. Verifying the target from matrix context: \"${{ matrix.domain }}\" "
           echo "--- End of Critical Debugging ---"
 
           # Execute commands using the user-provided Interlace syntax
@@ -132,8 +131,8 @@ jobs:
       - name: Upload Domain Results as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: crawled-results-${{ matrix.target }} # Unique artifact for each domain
-          path: results/${{ matrix.target }}/ # Uploads the results specific to this domain job
+          name: crawled-results-${{ matrix.domain }} # Unique artifact for each domain
+          path: results/${{ matrix.domain }}/ # Uploads the results specific to this domain job
           retention-days: 1
 
 
