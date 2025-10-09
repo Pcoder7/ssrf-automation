@@ -42,6 +42,12 @@ jobs:
     # Only run this job if the setup job actually found domains to process.
     if: needs.setup-matrix.outputs.domains != '[]'
     runs-on: ubuntu-latest
+    container:
+      # Use the exact same container for consistency with the primary account
+      image: ghcr.io/pcoder7/spider-puredns-actions:latest
+      credentials:
+        username: ${{ secrets.GHCR_USER }}
+        password: ${{ secrets.GHCR_TOKEN }}      
     strategy:
       fail-fast: false # IMPORTANT: If one domain scan fails, the others will continue.
       matrix:
@@ -66,14 +72,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
             
-      
-      - name: Install uforall
-        run: |
-           wget https://github.com/rix4uni/timelimitx/releases/download/v0.0.1/timelimitx-linux-amd64-0.0.1.tgz
-           tar -xvzf timelimitx-linux-amd64-0.0.1.tgz
-           rm -rf timelimitx-linux-amd64-0.0.1.tgz
-           mv timelimitx ~/go/bin/timelimitx
-           
         
      #-----------------------------------------------
       # Installation Phase: Install all required tools
@@ -84,12 +82,15 @@ jobs:
           go install github.com/jaeles-project/gospider@latest
           go install github.com/hakluke/hakrawler@latest
 
-      - name: Install Interlace (Python Tool)
+      - name: Install interlace tool
         shell: bash
         run: |
+          python3 --version
           git clone https://github.com/codingo/Interlace.git
           cd Interlace
           python3 -m pip install -r requirements.txt
+          pip3 install .
+          python3 Interlace/interlace.py -h
           cd ..
 
       #--------------------------------------------------
