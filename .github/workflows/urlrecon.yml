@@ -21,17 +21,15 @@ jobs:
       - name: Create domain matrix from domains.txt
         id: set-matrix
         run: |
-          # Exit gracefully if domains.txt does not exist
           if [ ! -f domains.txt ]; then
             echo "domains.txt file not found! Skipping."
-            echo "domains=[]" >> $GITHUB_OUTPUT
+            echo "domains='[]'" >> $GITHUB_OUTPUT
             exit 0
           fi
           
-
-          SANITIZED_DOMAINS=$(awk '!/^\s*#/ && !/^\s*$/ { gsub(/^[ \t]+|[ \t]+$/, ""); print }' domains.txt)
-          
-          JSON_DOMAINS=$(echo "$SANITIZED_DOMAINS" | jq -R . | jq -sc .)
+          # CRITICAL FIX: Using the superior and correct jq command from the user's reference.
+          # This properly splits by newline and creates a clean JSON array.
+          JSON_DOMAINS=$(jq -R -s -c 'split("\n") | map(select(length > 0))' domains.txt)
           
           echo "domains=$JSON_DOMAINS" >> $GITHUB_OUTPUT
           echo "Matrix created: $JSON_DOMAINS"
