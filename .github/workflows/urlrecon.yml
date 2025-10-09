@@ -111,7 +111,7 @@ jobs:
           mkdir -p "$OUTDIR"
 
           # Execute commands using the user-provided Interlace syntax
-          Interlace/interlace.py \
+          interlace \
             -t ${{ matrix.target }} \
             -threads 3 \
             -cL cli.txt \
