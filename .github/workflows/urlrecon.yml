@@ -100,7 +100,7 @@ jobs:
           # Interlace's -o flag will handle output directories, so we don't need to redirect here.
           echo "katana -u http://_target_ -ct 5m' -o _output_/katana.txt" > cli.txt
           echo "gospider -s http://_target_ -o _output_/gospider" >> cli.txt
-          echo "echo http://_target_ | hakrawler -u | sort -u > _output_/hakrawler.tx" >> cli.txt
+          echo "echo http://_target_ | hakrawler -u | sort -u > _output_/hakrawler.txt" >> cli.txt
 
       - name: Run Crawlers Concurrently with Interlace
         shell: bash
@@ -132,7 +132,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: crawled-results-${{ matrix.domain }} # Unique artifact for each domain
-          path: results/${{ matrix.domain }}/ # Uploads the results specific to this domain job
+          path: results/ # Uploads the results specific to this domain job
           retention-days: 1
 
 
