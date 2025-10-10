@@ -98,7 +98,7 @@ jobs:
         run: |
           # Create a command file for Interlace. _target_ is the placeholder.
           # Interlace's -o flag will handle output directories, so we don't need to redirect here.
-          echo "katana -u http://_target_ -ct 5m' -o _output_/katana.txt" > cli.txt
+          echo "katana -u http://_target_ -ct 5m -o _output_/katana.txt -silent" > cli.txt
           echo "gospider -s http://_target_ -o _output_/gospider" >> cli.txt
           echo "echo http://_target_ | hakrawler -u | sort -u > _output_/hakrawler.txt" >> cli.txt
 
